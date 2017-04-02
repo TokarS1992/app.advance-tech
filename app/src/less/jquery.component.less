@@ -1,0 +1,102 @@
+@import "lib/mixins.less";
+@import 'lib/variables';
+
+// Animate scroll on
+.come-in {
+  transform: translateY(0);
+  transition: transform 0.8s ease-out;
+}
+.come-in:nth-child(odd) {
+  transition-duration: 0.5s;
+}
+.already-visible {
+  transform: translateY(0);
+  transition: none;
+}
+// End animate
+
+.portfolio {
+    .mas_h(6);
+    .wrap-portfolio {
+        margin-bottom: 50px;
+        padding: 50px 0;
+    }
+    h2 {
+        margin-bottom: 50px;
+        font-size: 26px;
+        font-family: @RalT;
+    }
+      &-item {
+        .w_h(100%,680px);
+        display: flex;
+        align-items: center;
+        float: left;
+        position: relative;
+        padding: 10px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        &:nth-child(even) {
+          margin-right: 0;
+        }
+        transform-origin: center center;
+        &.off-top {
+        transform: translateY(-350px);
+        }
+        &.off-bottom{
+        transform: translateY(450px);
+        }
+        img {
+            .w_h();
+        }
+        .content {
+            > * {
+                cursor: default;
+                user-select: none;
+            }
+            h3 {
+                text-align: left;
+                font-size: 32px;
+                font-family: @RalSB;
+                text-transform: uppercase;
+                margin-bottom: 25px;
+                color: #0e1015;
+            }
+            .descript {
+                margin-bottom: 40px;
+            }
+            a {
+                cursor: pointer;
+                padding: 10px 35px;
+                font-family: @OSSB;
+                color: #5d47d7;
+                background-color: transparent;
+                border:1px solid;
+                border-radius: 20px;
+                &:hover{
+                    background: linear-gradient(to left, #00c6ff , #0072ff);
+                    color: #FFFFFF;
+                    .transition(all ease-in-out 0.3s)
+                }
+           }
+        }
+        &:hover .item__hov {
+            .transition(transform 0.5s 0.3s);
+            .transform(scale(1));
+        }
+        .container {
+            > div {
+                height: 450px;
+            }
+        }
+        &:nth-child(even) {
+            background-color: #f5f5f5;
+        }
+    }
+    .active_del {
+        display: block;
+    }
+
+    .non-active-del {
+        display: none;
+    }
+
+}

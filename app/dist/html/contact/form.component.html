@@ -1,0 +1,19 @@
+<form action="" method="POST" #f="ngForm" (ngSubmit)="create(); f.reset()">
+    <div class="inputbox" [class.animateError]="!nameForm.valid || !nameForm.untouched">
+        <div class="name clearfix">
+            <input [(ngModel)]="name" #nameForm="ngModel" name="name" placeholder="Имя" type="text" maxlength="20" class="contact-form-input" required/>
+
+            <div [hidden]="nameForm.valid || nameForm.untouched" class="alert alert-danger">Укажите имя</div>
+        </div>
+        <div class="email clearfix">
+            <input [(ngModel)]="email" #emailForm="ngModel" name="email" placeholder="E-mail" type="text" pattern="[a-zA-Z0-9._-]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" class="contact-form-input" required/>
+
+            <div [hidden]="emailForm.valid || emailForm.untouched" class="alert alert-danger">Введите корректную почту</div>
+        </div>
+    </div>
+    <textarea placeholder="Ваше сообщение" class="contact-form-textarea"></textarea>
+    <div class="buttonbox">
+        <button type="submit" class="contact-form-button">Отправить</button>
+        <button type="submit" class="contact-form-button">Заполнить бриф</button>
+    </div>
+</form>

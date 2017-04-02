@@ -1,0 +1,22 @@
+@import "lib/mixins.less";
+@import 'lib/variables';
+
+.port_tabs {
+    margin-bottom: 40px;
+    ul {
+        display: flex;
+        justify-content: center;
+        li {
+            display: inline-block;
+            margin-right: 20px;
+            cursor: pointer;
+            padding: 5px 10px;
+            color: #c5c5c5;
+            font-size: 14px;
+            font-family: @OSR;
+            &.active_tab {
+                color: @base_clr;
+            }
+        }
+    }
+}

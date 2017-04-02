@@ -1,0 +1,7 @@
+{
+    "port": 4000,
+    "db": {
+        "connection": "mongodb://localhost/",
+        "nameBD": "evis"
+    }
+}

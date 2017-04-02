@@ -1,0 +1,26 @@
+<section class="portfolio">
+    <h2>Наши работы</h2>
+    <tabs-port></tabs-port>
+    <div class="wrap-portfolio clearfix" *ngIf="portfolio">
+        <div scrollSmooth *ngFor="let port of portfolio; let i = index" class="portfolio-item" [attr.data-type]=port.type>
+            <div class="container">
+                <div *ngIf="i % 2 == 0" class="col-md-7 col-sm-6 text-center mb-xs-24 smooth">
+                    <img src="{{ port.path }}" alt="">
+                </div>
+                <div *ngIf="i % 2 == 0" class="col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1 content">
+                    <h3>{{ port.title }}</h3>
+                    <p class="descript"> {{ port.description }} </p>
+                    <a target="_blank" href="{{ port.href }}">Посмотреть</a>
+                </div>
+                <div *ngIf="i % 2 == 1" class="col-md-4 col-md-offset-1 col-sm-5 col-sm-offset-1 content">
+                    <h3>{{ port.title }}</h3>
+                    <p class="descript"> {{ port.description }} </p>
+                    <a target="_blank" href="{{ port.href }}">Посмотреть</a>
+                </div>
+                <div *ngIf="i % 2 == 1" class="col-md-7 col-sm-6 text-center mb-xs-24 smooth">
+                    <img src="{{ port.path }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

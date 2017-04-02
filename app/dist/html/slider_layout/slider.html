@@ -1,0 +1,31 @@
+<section class="slider-sect">
+    <div class="slider-main">
+        <div class="slider-wrapper" (mouseover)="stopAutoplay()" (mouseout)="startautoplay()">
+            <div #checkBuild *ngFor="let ban of banners; let i = index" class="slide-item slider-{{ i + 1 }}">
+                <div class="image">
+                    <img (dragstart)="dragStart($event)" alt="" src="{{ ban.path }}" />
+                </div>
+                <div class="content">
+                    {{ ban.description }}
+                    <button *ngIf="i == 0 && modal_btn" (click)="navigateBy( navByModalPath )" class="want_site btn">Хочу сайт</button>
+                </div>
+            </div>
+        </div>
+        
+        <div *ngIf="navigation || pagination" class="slider-navigation" [ngClass]="{'clickable': checkClickableClass}">
+            <div *ngIf="pagination" class="slider-pagination" #checkPag>
+                <div *ngFor="let pag of wrapChild; let i = index" class="pagination-item" (click)="clickToPag( $event, i )" [attr.data-pos]="i">
+                    <span *ngIf="paginationNumbers" [ngClass]="{'slider-number': paginationNumbers}"> {{ masNumber[i] }} </span>
+                </div>
+            </div>
+            <div *ngIf="navigation" class="slider-buttons">
+                <div class="prev" (click)="prev()" [class.disable]="currentSlide == 0">
+                    <span *ngIf="textBut[0].length > 0"> {{ textBut[0] }} </span>
+                </div>
+                <div class="next" (click)="next()" [class.disable]="currentSlide == maxSlide">
+                    <span *ngIf="textBut[1].length > 0"> {{ textBut[1] }} </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,21 @@
+<my-jquery-slider title_slider="About us"></my-jquery-slider>
+
+<div *ngIf="about" class="about clearfix">
+    <h1>Наши фото</h1>
+    <div *ngFor="let item of about; let i = index" class="about-items col-md-4">
+        <div class="about-items__wrap">
+            <img src="{{ item.img_path }}" alt="">
+            <div class="about-hov">
+                <div class="about-description">
+                    <h4> {{ item.title }} </h4>
+                    <div>
+                        <p>
+                            {{ item.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

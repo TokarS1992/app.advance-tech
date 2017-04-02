@@ -1,0 +1,24 @@
+<modal #callback modalClass="callback" cancelClass="fa fa-times" routePath="/">
+    <modal-cont>
+        <form action="/callback" method="POST" #f="ngForm" (ngSubmit)="create(); f.reset()">
+            <h1>Contact Form</h1>
+            <input [(ngModel)]="name" #nameForm="ngModel" name="name" placeholder="Name" type="text" maxlength="20" required/>
+            <div [hidden]="nameForm.valid || nameForm.untouched" class="alert alert-danger">
+                <span>
+                    Укажите имя
+                </span>
+            </div>
+            <input [(ngModel)]="email" #emailForm="ngModel" name="email" placeholder="E-mail" type="text" pattern="[a-zA-Z0-9._-]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}" required/>
+            <div [hidden]="emailForm.valid || emailForm.untouched" class="alert alert-danger">
+                Введите корректную почту
+            </div>
+            <input [(ngModel)]="phone" #phoneForm="ngModel" name="phone" placeholder="Number" type="text" pattern="[0-9]{10}" maxlength="10" required/>
+            <div [hidden]="phoneForm.valid || phoneForm.untouched" class="alert alert-danger">
+                Введите корректный телефон
+            </div>
+            <div class="send">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </modal-cont>
+</modal>

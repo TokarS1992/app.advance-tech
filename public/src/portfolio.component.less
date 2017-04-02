@@ -1,0 +1,19 @@
+.come-in {
+    transform: translateY(0);
+    transition: transform 1.8s ease-out;
+}
+
+.come-in:nth-child(odd) {
+    transition-duration: 1.5s;
+}
+
+.already-visible {
+    transform: translateY(0);
+    transition: none;
+}
+.off-top {
+    transform: translateY(-350px);
+}
+.off-bottom {
+    transform: translateY(450px);
+}

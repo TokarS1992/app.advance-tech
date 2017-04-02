@@ -1,0 +1,47 @@
+
+<header>
+
+  <div class="container clear">
+    <div class="logo"><img src="./img/logo.png" alt=""/></div>
+
+    <div class="contacts" *ngIf="contacts">
+      <ul class="phones">
+        <li *ngFor="let phone of contacts.phones"><span>{{ phone }}</span></li>
+      </ul>
+    </div>
+    <div class="bar" [class.active-bar]="nav-open" (click)="toogleNavMenu($event)"><span></span><span></span><span></span></div>
+  </div>
+</header>
+<div class="menu-overlay" [class.show-menu]="nav_open">
+  <ul class="nav-menu" [class.navOpen]="nav_open" *ngIf="categories">
+    <li *ngFor="let t of keys(categories)" routerLinkActive="active_tab" [class.linkClass]="nav_open"><span><a [routerLink]="categories[t]">{{ t }}</a></span></li>
+  </ul>
+</div>
+<main [class.fixible]="fix_height">
+  <router-outlet></router-outlet>
+  <router-outlet name="modals"></router-outlet>
+</main>
+<footer>
+  <div class="container">
+    <div class="col-md-{{ col_number }}">
+      <un class="phones">
+        <li *ngFor="let cont of contacts.phones"><span>{{ cont }}</span></li>
+      </un>
+    </div>
+    <div class="col-md-3" *ngIf="col_number == 6">
+      <div class="mail" *ngIf="contacts.mail.length == 1">
+        <div class="mail-item">{{ contacts.mail[0] }}</div>
+      </div>
+      <div class="mail" *ngIf="contacts.mail.length &gt; 1">
+        <ul class="mails">
+          <li *ngFor="let mail of contacts,mail"><span>{{ mail }}</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-3 socials">
+      <ul class="socials-block" *ngIf="contacts.socials">
+        <li *ngFor="let social of keys(contacts.socials)"><a href="{{ contacts.socials[social] }}" target="_blank"><span class="fa fa-{{ social }}"></span><span>{{ social }}</span></a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

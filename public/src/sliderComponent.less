@@ -1,0 +1,46 @@
+@import "lib/mixins.less";
+@import "lib/variables.less";
+
+@posBut: 40px;
+
+.slider-navigation {
+    .slider-pagination {
+        display: flex;
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        .pagination-item {
+            cursor: pointer;
+            margin-right: 15px;
+            .w_h(25px,25px);
+            .bord-r(50%);
+            background-color: red;
+            &:last-child {
+                margin-right: 0;
+            }
+            &.active {
+                background-color: #000;
+            }
+        }
+    }
+    .slider-buttons {
+        > div {
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            .w_h(50px,50px);
+            .bord-r();
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            &.prev {
+                left: @posBut;
+            }
+            &.next {
+                right: @posBut;
+            }
+        }
+    }
+}

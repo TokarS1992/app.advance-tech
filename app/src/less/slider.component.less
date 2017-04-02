@@ -1,0 +1,41 @@
+@import "lib/mixins.less";
+@import "lib/variables";
+
+.slider {
+    [class^="slider-"] {
+        position: relative;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            .w_h();
+            img {
+                .w_h();
+            }
+        }
+        .content {
+            position: relative;
+        }
+    }
+    .title_section {
+        font-family: @OSL;
+        margin-bottom: 45px;
+    }
+    .want_site {
+        padding: 15px 40px;
+        text-transform: uppercase;
+        color: #5d47d7;
+        font-family: @OSSB;
+        background-color: transparent;
+        border-radius: 25px !important;
+        .transition(all ease-in-out 0.25s);
+        &:active {box-shadow: none;}
+        &:hover {
+            background-color: #FFFFFF;
+        }
+    }
+}

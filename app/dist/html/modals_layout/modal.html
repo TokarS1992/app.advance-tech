@@ -1,0 +1,23 @@
+<div class="_modal" id="{{ id_modal }}" tabindex="-1" role="dialog" #modalCount>
+    <div class="_modal__wrap" [class]="modalClass" tabindex="0">
+        <div class="modal-head">
+            <ng-content select="modal-head"></ng-content>
+        </div>
+
+        <div class="modal-cont">
+            <ng-content select="modal-cont"></ng-content>
+        </div>
+
+        <div class="modal-foot" *ngIf="cancelBut || cancelClass || successBut">
+            <div class="buttons">
+                <span *ngIf="cancelBut || cancelClass" class="close" [ngClass]="cancelClass" (click)="close()">
+                    {{ cancelBut }}
+                </span>
+                <span * ngIf="successBut">
+                    {{ successBut }}
+                </span>
+            </div>
+            <ng-content select="modal-foot"></ng-content>
+        </div>
+    </div>
+</div>

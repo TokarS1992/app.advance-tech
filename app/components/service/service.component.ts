@@ -18,5 +18,4 @@ export class ServiceComponent implements OnInit {
     ngOnInit() {
         this.title.setTitle(this.name);
     }
-
 }

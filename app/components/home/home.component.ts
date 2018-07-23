@@ -8,12 +8,7 @@ import 'rxjs/add/operator/map';
 
 @Component({
     selector: 'my-home',
-    template: `
-        <my-jquery-slider title_slider="Мы делаем уютные сайты" button_form=true></my-jquery-slider>
-        <h2 class="title_section">Мы делаем уютные сайты</h2>
-        <slider-main></slider-main>
-        <my-jquery-portfolio></my-jquery-portfolio>
-    `,
+    templateUrl: 'dist/html/home.component.html',
     providers: [HttpService, TitleService]
 })
 
